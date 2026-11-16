@@ -3,7 +3,8 @@
     "home": "MiYa",
     "privacy": "Privacy",
     "support": "Support",
-    "language": "Language"
+    "language": "Language",
+    "start": "Start here"
   },
   "appStore": "Download on the App Store",
   "footer": "MiYa is free and made by an independent developer. This site uses no cookies, analytics or trackers.",
@@ -38,7 +39,208 @@
         "p": "English, 简体中文, 繁體中文, 日本語 and Español — it follows your iPhone's language."
       }
     ],
-    "note": "MiYa is not a medical device and does not diagnose any condition. Scores are estimates relative to your own history. If you have chest pain, shortness of breath, dizziness or palpitations, stop exercising and seek medical care."
+    "note": "MiYa is not a medical device and does not diagnose any condition. Scores are estimates relative to your own history. If you have chest pain, shortness of breath, dizziness or palpitations, stop exercising and seek medical care.",
+    "ledger": [
+      {
+        "n": "0",
+        "t": "servers"
+      },
+      {
+        "n": "0",
+        "t": "accounts"
+      },
+      {
+        "n": "5",
+        "t": "languages"
+      },
+      {
+        "n": "Free",
+        "t": "no subscription"
+      }
+    ],
+    "heroCta": "How it works",
+    "art": "A ray of light leaves an Apple Watch, passes through a prism and splits into four beams that end at a heart, a battery, footprints and a stopwatch.",
+    "intro": {
+      "kicker": "01 / Start here",
+      "h": "From your wrist to a sentence you understand",
+      "lede": "Four steps, all on devices you own.",
+      "chain": [
+        {
+          "h": "Apple Watch measures",
+          "p": "Heart rate, HRV, blood oxygen, steps and workouts, all day."
+        },
+        {
+          "h": "Health stores it",
+          "p": "The Health app on your iPhone keeps the records. MiYa only reads them."
+        },
+        {
+          "h": "MiYa works it out",
+          "p": "Scores and trends are calculated on the iPhone, compared with your own usual."
+        },
+        {
+          "h": "You read it",
+          "p": "A plain-language report on iPhone, and today's numbers on your wrist."
+        }
+      ],
+      "termsH": "Words you'll see, in plain language",
+      "terms": [
+        {
+          "t": "HRV",
+          "d": "How much the gap between heartbeats varies. Higher than your usual usually means you're well rested."
+        },
+        {
+          "t": "Resting heart rate",
+          "d": "Your heart rate while still. Lower than your usual usually means recovery is good."
+        },
+        {
+          "t": "Recovery",
+          "d": "0–100: how ready your body is today, from HRV and resting heart rate against your own baseline."
+        },
+        {
+          "t": "Strain",
+          "d": "How hard your heart worked today, from time spent at higher heart rates."
+        },
+        {
+          "t": "Stress",
+          "d": "How tense your heart rate looked while you weren't exercising. It can't tell stress from coffee."
+        },
+        {
+          "t": "Battery",
+          "d": "Energy left: charged by recovery, drained by strain and stress through the day."
+        },
+        {
+          "t": "Baseline",
+          "d": "Your own normal, from the past weeks. Every score compares you with it, not with others."
+        },
+        {
+          "t": "VO₂ max",
+          "d": "An estimate of fitness: how much oxygen your body can use at full effort."
+        },
+        {
+          "t": "Heart rate zones",
+          "d": "Z1 is a stroll, Z5 is a sprint. Workouts show how long you spent in each."
+        },
+        {
+          "t": "ECG",
+          "d": "Recordings from the ECG app shown as waveforms, with Apple's classification. Not a diagnosis."
+        }
+      ]
+    },
+    "map": {
+      "kicker": "02 / What's inside",
+      "h": "Four parts of the report",
+      "lede": "See it by part, or by when in the day you'd open it.",
+      "byType": "By part",
+      "byDay": "By time of day",
+      "more": "Read more",
+      "cats": [
+        {
+          "id": "heart",
+          "h": "Heart",
+          "q": "Answers: is my heart working harder or easier than usual?",
+          "short": "Resting heart rate, HRV, blood oxygen and ECG, with what each change means.",
+          "body": "Long-term trends for resting heart rate, HRV, blood oxygen, breathing rate and walking steadiness. Each number has a plain sentence underneath, like “6 fewer beats a minute than before, so your heart is working more efficiently.” ECG recordings are shown as waveforms."
+        },
+        {
+          "id": "recovery",
+          "h": "Recovery",
+          "q": "Answers: should I push or rest today?",
+          "short": "Recovery, Strain, Stress and Battery, scored against your own baseline.",
+          "body": "Four 0–100 scores. Recovery uses HRV and resting heart rate; Strain uses time at higher heart rates; Stress uses heart rate while you weren't exercising; Battery combines them through the day. Days with too little wear are left out instead of guessed."
+        },
+        {
+          "id": "activity",
+          "h": "Activity",
+          "q": "Answers: am I moving as much as I think?",
+          "short": "Steps, distance and patterns, plus a weekly walking route.",
+          "body": "Steps and distance over weeks and years, your most active days and months, and streaks against a goal set from your own median. Your real steps move a character along a different route each week."
+        },
+        {
+          "id": "workouts",
+          "h": "Workouts",
+          "q": "Answers: what did each workout actually do?",
+          "short": "Routes, heart rate zones and which workouts recharge you most.",
+          "body": "Every workout with its GPS route, heart rate zones and stats, plus patterns like which kind of workout is followed by your best recovery the next day."
+        }
+      ],
+      "day": [
+        {
+          "when": "Morning",
+          "h": "How you are today",
+          "p": "Open MiYa or glance at your watch: one sentence on whether to push or take it easy, and why."
+        },
+        {
+          "when": "Before a workout",
+          "h": "Check the battery",
+          "p": "Low battery and low recovery mean an easier session will do more good."
+        },
+        {
+          "when": "After a workout",
+          "h": "See what it did",
+          "p": "Route, heart rate zones and how hard it was compared with your usual."
+        },
+        {
+          "when": "Weekly",
+          "h": "Look at the trend",
+          "p": "Resting heart rate and HRV over 90 days tell you more than any single day."
+        }
+      ]
+    },
+    "numbers": {
+      "kicker": "03 / See it with numbers",
+      "h": "What “compared with you” looks like",
+      "lede": "Two charts with example numbers. Hover or tap for values.",
+      "sample": "Example numbers for illustration, not real data.",
+      "table": "Show as table",
+      "hrvTitle": "HRV against your baseline, 28 days",
+      "hrvCaption": "The band is your usual range. Days above it suggest you're well rested; a run of days below it is a cue to take it easier.",
+      "hrvSeries": "HRV (ms)",
+      "hrvBand": "Your usual range",
+      "day": "Day",
+      "value": "Value",
+      "recTitle": "Recovery score, 14 days",
+      "recCaption": "The same score, read with the three bands the report uses.",
+      "recSeries": "Recovery",
+      "bands": [
+        "Rest",
+        "Go easy",
+        "Train"
+      ],
+      "hero": "+18%",
+      "heroNote": "HRV on the best day, compared with the baseline"
+    },
+    "flow": {
+      "kicker": "04 / Where your data goes",
+      "h": "The last box is empty on purpose",
+      "boxes": [
+        {
+          "h": "Health app",
+          "p": "Already on your iPhone"
+        },
+        {
+          "h": "On-device math",
+          "p": "Scores, trends, charts"
+        },
+        {
+          "h": "On-device report",
+          "p": "Stays on this iPhone"
+        },
+        {
+          "h": "Server / cloud",
+          "p": "This step doesn't exist"
+        }
+      ]
+    },
+    "limits": {
+      "kicker": "05 / What MiYa won't do",
+      "h": "Clear limits",
+      "items": [
+        "Diagnose anything. Scores are trends against your own history.",
+        "Upload your health data, or ask for an account.",
+        "Show ads or sell anything inside the app.",
+        "Guess on days with too little data. It says so instead."
+      ]
+    }
   },
   "privacy": {
     "title": "MiYa Privacy Policy",

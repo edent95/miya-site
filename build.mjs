@@ -10,6 +10,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { heroArt } from './src/art.mjs';
+import { hrvChart, recoveryChart, icon, hrvPeakPct } from './src/charts.mjs';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(ROOT, 'dist');
@@ -81,6 +83,7 @@ function layout(L, page, { title, description, body, noindex = false }) {
   <link rel="icon" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
+  <script src="/site.js" defer></script>
 </head>
 <body>
   <header class="top">
@@ -104,17 +107,52 @@ ${body}
 }
 
 function home(L, page) {
-  const c = content[L.code], H = c.home;
+  const c = content[L.code], H = c.home, I = H.intro, M = H.map, N = H.numbers, FL = H.flow, LM = H.limits;
+  const head = (k, h, lede) => `<header class="sec-head"><p class="kicker">${esc(k)}</p><h2>${esc(h)}</h2>${lede ? `<p class="lede">${esc(lede)}</p>` : ''}</header>`;
+  const ledger = H.ledger.map((x) => `<li><b>${esc(x.n)}</b><span>${esc(x.t)}</span></li>`).join('');
   return layout(L, page, {
     title: H.title, description: H.description,
     body: `    <section class="hero">
-      <img class="icon" src="/assets/icon.png" alt="MiYa" width="128" height="128">
+      <img class="icon" src="/assets/icon.png" alt="MiYa" width="112" height="112">
       <h1>${txt(H.tagline)}</h1>
       <p class="lead">${txt(H.lead)}</p>
-      <a class="store" href="${APP_STORE}">${esc(c.appStore)}</a>
+      <p class="ctas"><a class="store" href="${APP_STORE}">${esc(c.appStore)}</a><a class="ghost" href="#start">${esc(H.heroCta)}</a></p>
+      <ul class="ledger">${ledger}</ul>
     </section>
-    <section class="features">
-${H.features.map(f => `      <article><h2>${txt(f.h)}</h2><p>${txt(f.p)}</p></article>`).join('\n')}
+    <figure class="banner" role="img" aria-label="${esc(H.art)}">${heroArt('hero')}</figure>
+
+    <section class="sec" id="start">
+      ${head(I.kicker, I.h, I.lede)}
+      <ol class="chain">${I.chain.map((x, i) => `<li><span class="num">${String(i + 1).padStart(2, '0')}</span><h3>${esc(x.h)}</h3><p>${esc(x.p)}</p></li>`).join('')}</ol>
+      <h3 class="sub">${esc(I.termsH)}</h3>
+      <dl class="terms">${I.terms.map((x) => `<div><dt>${esc(x.t)}</dt><dd>${esc(x.d)}</dd></div>`).join('')}</dl>
+    </section>
+
+    <section class="sec" id="inside" data-views="type">
+      ${head(M.kicker, M.h, M.lede)}
+      <div class="seg" role="group"><button type="button" data-view-btn="type" aria-pressed="true">${esc(M.byType)}</button><button type="button" data-view-btn="day" aria-pressed="false">${esc(M.byDay)}</button></div>
+      <div class="cards view-type">${M.cats.map((x, i) => `<article class="card" id="card-${esc(x.id)}">
+        <p class="card-top"><span class="num">${String(i + 1).padStart(2, '0')}</span>${icon(x.id)}</p>
+        <h3>${esc(x.h)}</h3><p class="q">${esc(x.q)}</p><p>${esc(x.short)}</p>
+        <details><summary>${esc(M.more)}</summary><p>${esc(x.body)}</p></details>
+      </article>`).join('')}</div>
+      <ol class="cards view-day">${M.day.map((x) => `<li class="card"><p class="kicker">${esc(x.when)}</p><h3>${esc(x.h)}</h3><p>${esc(x.p)}</p></li>`).join('')}</ol>
+    </section>
+
+    <section class="sec" id="numbers">
+      ${head(N.kicker, N.h, N.lede)}
+      <div class="charts">${hrvChart(N)}${recoveryChart(N)}</div>
+    </section>
+
+    <section class="sec" id="flow">
+      ${head(FL.kicker, FL.h)}
+      <ol class="flow">${FL.boxes.map((x, i) => `<li class="${i === FL.boxes.length - 1 ? 'is-empty' : ''}"><h3>${esc(x.h)}</h3><p>${esc(x.p)}</p></li>`).join('')}</ol>
+    </section>
+
+    <section class="sec" id="limits">
+      ${head(LM.kicker, LM.h)}
+      <ul class="limits">${LM.items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+      <p class="ctas"><a class="store" href="${APP_STORE}">${esc(c.appStore)}</a></p>
     </section>
     <p class="note">${txt(H.note)}</p>`,
   });
@@ -156,6 +194,7 @@ const write = (rel, text) => { const f = path.join(OUT, rel); fs.mkdirSync(path.
 for (const L of LANGS) for (const page of PAGES) write(path.join(url(L, page), 'index.html'), RENDER[page.key](L, page));
 fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true });
 fs.copyFileSync(path.join(ROOT, 'src', 'style.css'), path.join(OUT, 'style.css'));
+fs.copyFileSync(path.join(ROOT, 'src', 'site.js'), path.join(OUT, 'site.js'));
 write('CNAME', 'miya.eden-tan.com\n');
 write('.nojekyll', '');
 write('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);

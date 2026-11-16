@@ -3,7 +3,8 @@
     "home": "MiYa",
     "privacy": "Privacidad",
     "support": "Soporte",
-    "language": "Idioma"
+    "language": "Idioma",
+    "start": "Empieza aquí"
   },
   "appStore": "Descargar en el App Store",
   "footer": "MiYa es gratis y lo hace un desarrollador independiente. Este sitio no usa cookies, analíticas ni rastreadores.",
@@ -38,7 +39,208 @@
         "p": "English, 简体中文, 繁體中文, 日本語 y Español: sigue el idioma de tu iPhone."
       }
     ],
-    "note": "MiYa no es un dispositivo médico y no diagnostica ninguna afección. Las puntuaciones son estimaciones relativas a tu propio historial. Si tienes dolor en el pecho, falta de aire, mareos o palpitaciones, deja de hacer ejercicio y busca atención médica."
+    "note": "MiYa no es un dispositivo médico y no diagnostica ninguna afección. Las puntuaciones son estimaciones relativas a tu propio historial. Si tienes dolor en el pecho, falta de aire, mareos o palpitaciones, deja de hacer ejercicio y busca atención médica.",
+    "ledger": [
+      {
+        "n": "0",
+        "t": "servidores"
+      },
+      {
+        "n": "0",
+        "t": "cuentas"
+      },
+      {
+        "n": "5",
+        "t": "idiomas"
+      },
+      {
+        "n": "Gratis",
+        "t": "sin suscripción"
+      }
+    ],
+    "heroCta": "Cómo funciona",
+    "art": "Un rayo de luz sale de un Apple Watch, atraviesa un prisma y se divide en cuatro haces que terminan en un corazón, una batería, unas huellas y un cronómetro.",
+    "intro": {
+      "kicker": "01 / Empieza aquí",
+      "h": "De tu muñeca a una frase que entiendes",
+      "lede": "Cuatro pasos, todos en dispositivos que son tuyos.",
+      "chain": [
+        {
+          "h": "El Apple Watch mide",
+          "p": "Frecuencia cardiaca, HRV, oxígeno en sangre, pasos y entrenamientos, todo el día."
+        },
+        {
+          "h": "Salud lo guarda",
+          "p": "La app Salud de tu iPhone guarda los registros. MiYa solo los lee."
+        },
+        {
+          "h": "MiYa hace las cuentas",
+          "p": "Las puntuaciones y tendencias se calculan en el iPhone, comparadas con lo que es normal para ti."
+        },
+        {
+          "h": "Tú lo lees",
+          "p": "Un informe en lenguaje sencillo en el iPhone, y los números de hoy en tu muñeca."
+        }
+      ],
+      "termsH": "Palabras que verás, en lenguaje sencillo",
+      "terms": [
+        {
+          "t": "HRV",
+          "d": "Cuánto varía el tiempo entre un latido y otro. Si está más alta de lo habitual para ti, suele indicar que descansaste bien."
+        },
+        {
+          "t": "Frecuencia cardiaca en reposo",
+          "d": "Tu frecuencia cardiaca cuando estás quieto. Si está más baja de lo habitual para ti, suele indicar que te estás recuperando bien."
+        },
+        {
+          "t": "Recuperación",
+          "d": "De 0 a 100: qué tan listo está tu cuerpo hoy, según tu HRV y tu frecuencia en reposo frente a tu propia referencia."
+        },
+        {
+          "t": "Esfuerzo",
+          "d": "Cuánto trabajó tu corazón hoy, según el tiempo que pasaste con la frecuencia cardiaca más alta."
+        },
+        {
+          "t": "Estrés",
+          "d": "Qué tan tensa se vio tu frecuencia cardiaca mientras no hacías ejercicio. No distingue el estrés del café."
+        },
+        {
+          "t": "Batería",
+          "d": "La energía que te queda: la recuperación la carga, y el esfuerzo y el estrés la gastan a lo largo del día."
+        },
+        {
+          "t": "Referencia",
+          "d": "Lo normal para ti, a partir de las últimas semanas. Cada puntuación te compara con ella, no con otras personas."
+        },
+        {
+          "t": "VO₂ max",
+          "d": "Una estimación de tu forma física: cuánto oxígeno puede usar tu cuerpo a máximo esfuerzo."
+        },
+        {
+          "t": "Zonas de frecuencia cardiaca",
+          "d": "Z1 es un paseo, Z5 es un sprint. Cada entrenamiento muestra cuánto tiempo pasaste en cada una."
+        },
+        {
+          "t": "ECG",
+          "d": "Los registros de la app ECG se muestran como ondas, con la clasificación de Apple. No es un diagnóstico."
+        }
+      ]
+    },
+    "map": {
+      "kicker": "02 / Qué incluye",
+      "h": "Las cuatro partes del informe",
+      "lede": "Míralo por partes o según el momento del día en que lo abrirías.",
+      "byType": "Por partes",
+      "byDay": "Según la hora",
+      "more": "Ver más",
+      "cats": [
+        {
+          "id": "heart",
+          "h": "Corazón",
+          "q": "Responde: ¿mi corazón trabaja más o menos que de costumbre?",
+          "short": "Frecuencia en reposo, HRV, oxígeno en sangre y ECG, con lo que significa cada cambio.",
+          "body": "Tendencias a largo plazo de frecuencia cardiaca en reposo, HRV, oxígeno en sangre, frecuencia respiratoria y estabilidad al caminar. Cada número lleva debajo una frase sencilla, como «6 latidos menos por minuto que antes, así que tu corazón trabaja con más eficiencia». Los registros de ECG se muestran como ondas."
+        },
+        {
+          "id": "recovery",
+          "h": "Recuperación",
+          "q": "Responde: ¿hoy me exijo o descanso?",
+          "short": "Recuperación, Esfuerzo, Estrés y Batería, comparados con tu propia referencia.",
+          "body": "Cuatro puntuaciones de 0 a 100. Recuperación usa la HRV y la frecuencia en reposo; Esfuerzo, el tiempo con la frecuencia cardiaca más alta; Estrés, la frecuencia cardiaca mientras no hacías ejercicio; Batería las combina a lo largo del día. Los días en que llevaste el reloj muy poco tiempo se dejan fuera en lugar de adivinar."
+        },
+        {
+          "id": "activity",
+          "h": "Actividad",
+          "q": "Responde: ¿me muevo tanto como creo?",
+          "short": "Pasos, distancia y patrones, más una ruta a pie cada semana.",
+          "body": "Pasos y distancia a lo largo de semanas y años, tus días y meses más activos, y rachas frente a una meta basada en tu propia mediana. Tus pasos reales hacen avanzar a un personaje por una ruta distinta cada semana."
+        },
+        {
+          "id": "workouts",
+          "h": "Entrenamientos",
+          "q": "Responde: ¿qué logró de verdad cada entrenamiento?",
+          "short": "Rutas, zonas de frecuencia cardiaca y qué entrenamientos te recargan más.",
+          "body": "Cada entrenamiento con su ruta GPS, zonas de frecuencia cardiaca y datos, además de patrones como qué tipo de entrenamiento va seguido de tu mejor recuperación al día siguiente."
+        }
+      ],
+      "day": [
+        {
+          "when": "Por la mañana",
+          "h": "Cómo estás hoy",
+          "p": "Abre MiYa o mira tu reloj: una frase que te dice si exigirte o ir con calma, y por qué."
+        },
+        {
+          "when": "Antes de entrenar",
+          "h": "Revisa la batería",
+          "p": "Con la batería y la recuperación bajas, una sesión más suave te hará más bien."
+        },
+        {
+          "when": "Después de entrenar",
+          "h": "Mira qué logró",
+          "p": "Ruta, zonas de frecuencia cardiaca y qué tan duro fue comparado con lo habitual para ti."
+        },
+        {
+          "when": "Cada semana",
+          "h": "Mira la tendencia",
+          "p": "La frecuencia en reposo y la HRV de 90 días dicen más que cualquier día suelto."
+        }
+      ]
+    },
+    "numbers": {
+      "kicker": "03 / Míralo en números",
+      "h": "Cómo se ve «compararte contigo»",
+      "lede": "Dos gráficas con números de ejemplo. Pasa el cursor o toca para ver los valores.",
+      "sample": "Números de ejemplo para ilustrar, no son datos reales.",
+      "table": "Ver como tabla",
+      "hrvTitle": "HRV frente a tu referencia, 28 días",
+      "hrvCaption": "La franja es tu rango habitual. Los días por encima sugieren que descansaste bien; varios días seguidos por debajo son una señal para ir con más calma.",
+      "hrvSeries": "HRV (ms)",
+      "hrvBand": "Tu rango habitual",
+      "day": "Día",
+      "value": "Valor",
+      "recTitle": "Puntuación de Recuperación, 14 días",
+      "recCaption": "La misma puntuación, leída con los tres niveles que usa el informe.",
+      "recSeries": "Recuperación",
+      "bands": [
+        "Descanso",
+        "Con calma",
+        "Entrena"
+      ],
+      "hero": "+18%",
+      "heroNote": "HRV del mejor día, comparada con la referencia"
+    },
+    "flow": {
+      "kicker": "04 / A dónde van tus datos",
+      "h": "La última casilla está vacía a propósito",
+      "boxes": [
+        {
+          "h": "App Salud",
+          "p": "Ya está en tu iPhone"
+        },
+        {
+          "h": "Cálculos en el dispositivo",
+          "p": "Puntuaciones, tendencias, gráficas"
+        },
+        {
+          "h": "Informe en el dispositivo",
+          "p": "Se queda en este iPhone"
+        },
+        {
+          "h": "Servidor / nube",
+          "p": "Este paso no existe"
+        }
+      ]
+    },
+    "limits": {
+      "kicker": "05 / Lo que MiYa no hace",
+      "h": "Límites claros",
+      "items": [
+        "Diagnosticar nada. Las puntuaciones son tendencias frente a tu propio historial.",
+        "Subir tus datos de salud ni pedirte una cuenta.",
+        "Mostrar anuncios ni venderte nada dentro de la app.",
+        "Adivinar los días con muy pocos datos. En su lugar, te lo dice."
+      ]
+    }
   },
   "privacy": {
     "title": "Política de privacidad de MiYa",
