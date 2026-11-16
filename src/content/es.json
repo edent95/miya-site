@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "MiYa",
+    "privacy": "Privacidad",
+    "support": "Soporte",
+    "language": "Idioma"
+  },
+  "appStore": "Descargar en el App Store",
+  "footer": "MiYa es gratis y lo hace un desarrollador independiente. Este sitio no usa cookies, analíticas ni rastreadores.",
+  "home": {
+    "title": "MiYa — El informe de salud de tu Apple Watch en palabras sencillas",
+    "description": "MiYa convierte lo que registra tu Apple Watch —HRV, frecuencia cardiaca en reposo, entrenamientos, ECG— en un informe en lenguaje sencillo. Gratis, sin cuenta, y tus datos de salud nunca salen de tu iPhone.",
+    "tagline": "Tu Apple Watch no deja de medir. MiYa te explica qué significan los números.",
+    "lead": "Frecuencia cardiaca, HRV, oxígeno en sangre, pasos, entrenamientos, ECG: MiYa los convierte en un informe que se lee como una historia. Gratis, sin cuenta, y todo se calcula en tu iPhone.",
+    "features": [
+      {
+        "h": "Cómo estás hoy",
+        "p": "Una frase sobre cuánta energía tiene tu cuerpo, qué tipo de actividad te conviene hoy y por qué."
+      },
+      {
+        "h": "Cada número, explicado",
+        "p": "Toca el «?» junto a cualquier métrica para ver qué es, una comparación cotidiana y cómo interpretarla."
+      },
+      {
+        "h": "Solo te comparas contigo",
+        "p": "Las puntuaciones de Recuperación, Esfuerzo, Estrés y Batería usan tu propia referencia, no el promedio de otras personas."
+      },
+      {
+        "h": "En tu muñeca",
+        "p": "La app del Apple Watch muestra la recuperación, el estrés y la batería de hoy; un widget en la esfera deja la batería a un vistazo."
+      },
+      {
+        "h": "Privada por diseño",
+        "p": "Sin cuenta, sin servidores, sin analíticas, sin anuncios. MiYa solo lee de Salud y nunca escribe en ella."
+      },
+      {
+        "h": "Cinco idiomas",
+        "p": "English, 简体中文, 繁體中文, 日本語 y Español: sigue el idioma de tu iPhone."
+      }
+    ],
+    "note": "MiYa no es un dispositivo médico y no diagnostica ninguna afección. Las puntuaciones son estimaciones relativas a tu propio historial. Si tienes dolor en el pecho, falta de aire, mareos o palpitaciones, deja de hacer ejercicio y busca atención médica."
+  },
+  "privacy": {
+    "title": "Política de privacidad de MiYa",
+    "description": "MiYa no recopila ningún dato. Los datos de salud se leen y procesan solo en tu iPhone; las grabaciones opcionales van únicamente a dispositivos que son tuyos.",
+    "updated": "Última actualización: 16 de noviembre de 2026 · Se aplica a MiYa para iPhone y Apple Watch",
+    "intro": "MiYa no recopila ningún dato sobre ti. El desarrollador no tiene servidores, ni cuentas, ni analíticas, así que no hay ningún lugar al que enviar tus datos. Esta página explica qué lee MiYa, dónde se guarda y la única función opcional que mueve datos entre tus propios dispositivos.",
+    "sections": [
+      {
+        "h": "Datos de salud",
+        "ul": [
+          "MiYa lee pasos, frecuencia cardiaca, HRV, oxígeno en sangre, entrenamientos, ECG y registros similares de la app Salud, solo después de que lo permitas.",
+          "Todos los cálculos se hacen en tu iPhone. Los resultados se guardan en un archivo de base de datos en el iPhone.",
+          "MiYa nunca escribe ni cambia nada en Salud.",
+          "El informe se excluye de la copia de seguridad de iCloud, como exige Apple para los datos de salud."
+        ]
+      },
+      {
+        "h": "Apple Watch",
+        "p": "El iPhone envía un pequeño resumen (las puntuaciones de hoy y los objetivos semanales) a tu Apple Watch mediante la conexión integrada de Apple entre el iPhone y el reloj. Nunca pasa por ningún servidor del desarrollador."
+      },
+      {
+        "h": "Grabación opcional durante todo el día",
+        "ul": [
+          "Desactivada de forma predeterminada. Si la activas, tu Apple Watch graba audio y lo pasa a tu iPhone.",
+          "La voz se convierte en texto en el iPhone con el reconocimiento en el dispositivo de Apple. Si configuras tu propia computadora para la transcripción, las grabaciones se envían solo a la dirección que introduzcas: una computadora en tu red doméstica o al que accedas a través de tu propia red privada (como Tailscale). El desarrollador nunca recibe grabaciones ni texto.",
+          "Si activas «Registrar lugares», MiYa anota dónde estabas en cada grabación. Las ubicaciones se quedan en tus dispositivos.",
+          "Las grabaciones pueden captar a otras personas. Cumple las leyes locales y pide consentimiento cuando sea necesario."
+        ]
+      },
+      {
+        "h": "Lo que no hacemos",
+        "ul": [
+          "Sin cuentas, inicio de sesión ni rastreo.",
+          "Sin SDK de terceros de analíticas, publicidad o informes de fallos.",
+          "No vendemos ni compartimos datos: no hay datos que vender ni compartir.",
+          "Etiqueta de privacidad del App Store: Datos no recopilados."
+        ]
+      },
+      {
+        "h": "Eliminar tus datos",
+        "p": "En MiYa, abre Información y privacidad y elige Eliminar datos de este dispositivo para borrar el informe. Las grabaciones se pueden eliminar una a una en la lista de grabaciones. Al eliminar la app se borra todo lo que guardó. Si desactivas el acceso de MiYa en la app Salud, no se leerá nada más."
+      },
+      {
+        "h": "Menores",
+        "p": "MiYa no está dirigida a menores y no recopila datos de nadie."
+      },
+      {
+        "h": "Cambios y contacto",
+        "p": "Si esta política cambia, la nueva versión se publicará en esta página con una nueva fecha. Preguntas: {email}"
+      }
+    ]
+  },
+  "support": {
+    "title": "Soporte de MiYa",
+    "description": "Ayuda con MiYa: sincronizar datos de Salud, puntuaciones, idiomas, eliminar datos y cómo contactar con el desarrollador.",
+    "intro": "Respuestas a preguntas frecuentes. Si la tuya no está aquí, escribe al desarrollador; normalmente responde en pocos días.",
+    "faq": [
+      {
+        "q": "El informe está vacío.",
+        "a": "MiYa solo puede mostrar lo que hay en la app Salud. Ve a Ajustes → Privacidad y seguridad → Salud → MiYa, permite los tipos de datos y luego toca Volver a sincronizar. Un Apple Watch aporta la mayor cantidad de datos; los pasos registrados solo con el iPhone también sirven."
+      },
+      {
+        "q": "¿Por qué mis puntuaciones no coinciden con las de otra app?",
+        "a": "MiYa calcula Recuperación, Esfuerzo, Estrés y Batería según tu propia referencia, así que no coincidirán exactamente con otras apps. Las tendencias sí deberían coincidir."
+      },
+      {
+        "q": "Algunos días no tienen puntuación de recuperación.",
+        "a": "La recuperación necesita HRV y suficiente tiempo de uso. Los días en que llevaste el reloj poco tiempo, la frecuencia cardiaca en reposo no es fiable y se deja fuera."
+      },
+      {
+        "q": "¿Cómo cambio el idioma?",
+        "a": "MiYa sigue el idioma de tu iPhone. También puedes elegir un idioma en el menú del informe o en Ajustes → MiYa → Idioma."
+      },
+      {
+        "q": "¿Cómo lo elimino todo?",
+        "a": "En MiYa, abre Información y privacidad y elige Eliminar datos de este dispositivo. Las grabaciones se eliminan una a una en la lista de grabaciones. Al eliminar la app se borra todo lo que guardó."
+      },
+      {
+        "q": "¿MiYa es un dispositivo médico?",
+        "a": "No. MiYa no diagnostica ninguna afección. Si tienes dolor en el pecho, falta de aire, mareos o palpitaciones, busca atención médica."
+      }
+    ],
+    "contact": "Correo",
+    "contactNote": "No envíes datos de salud ni capturas de pantalla con información personal a menos que te sientas cómodo compartiéndolos."
+  }
+}

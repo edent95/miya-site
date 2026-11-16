@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "MiYa",
+    "privacy": "Privacy",
+    "support": "Support",
+    "language": "Language"
+  },
+  "appStore": "Download on the App Store",
+  "footer": "MiYa is free and made by an independent developer. This site uses no cookies, analytics or trackers.",
+  "home": {
+    "title": "MiYa — Apple Watch health report in plain words",
+    "description": "MiYa turns what your Apple Watch records — HRV, resting heart rate, workouts, ECG — into a plain-language report. Free, no account, and your health data never leaves your iPhone.",
+    "tagline": "Your Apple Watch keeps measuring. MiYa tells you what the numbers mean.",
+    "lead": "Heart rate, HRV, blood oxygen, steps, workouts, ECG — MiYa turns them into a report you can read like a story. Free, no account, and everything is calculated on your iPhone.",
+    "features": [
+      {
+        "h": "How you are today",
+        "p": "One sentence on how charged up your body is, what kind of movement suits today, and the reasons behind it."
+      },
+      {
+        "h": "Every number explained",
+        "p": "Tap the “?” next to any metric to see what it is, an everyday comparison, and how to read it."
+      },
+      {
+        "h": "Compared only with you",
+        "p": "Recovery, Strain, Stress and Battery scores use your own baseline, not someone else's average."
+      },
+      {
+        "h": "On your wrist",
+        "p": "The Apple Watch app shows today's recovery, stress and battery; a watch face widget keeps the battery one glance away."
+      },
+      {
+        "h": "Private by design",
+        "p": "No account, no servers, no analytics, no ads. MiYa only reads from Health and never writes to it."
+      },
+      {
+        "h": "Five languages",
+        "p": "English, 简体中文, 繁體中文, 日本語 and Español — it follows your iPhone's language."
+      }
+    ],
+    "note": "MiYa is not a medical device and does not diagnose any condition. Scores are estimates relative to your own history. If you have chest pain, shortness of breath, dizziness or palpitations, stop exercising and seek medical care."
+  },
+  "privacy": {
+    "title": "MiYa Privacy Policy",
+    "description": "MiYa collects no data. Health data is read and processed only on your iPhone; optional recordings go only to devices you own.",
+    "updated": "Last updated: November 16, 2026 · Applies to MiYa for iPhone and Apple Watch",
+    "intro": "MiYa collects no data about you. The developer has no servers, no accounts and no analytics, so there is nowhere for your data to be sent. This page explains what MiYa reads, where it is kept, and the one optional feature that moves data between your own devices.",
+    "sections": [
+      {
+        "h": "Health data",
+        "ul": [
+          "MiYa reads steps, heart rate, HRV, blood oxygen, workouts, ECG and similar records from the Health app, only after you allow it.",
+          "All calculations happen on your iPhone. The results are stored in a database file on the iPhone.",
+          "MiYa never writes to or changes anything in Health.",
+          "The report is excluded from iCloud backup, as Apple requires for health data."
+        ]
+      },
+      {
+        "h": "Apple Watch",
+        "p": "The iPhone sends a small summary (today's scores and weekly goals) to your Apple Watch through Apple's built-in iPhone–Watch connection. It never passes through any server run by the developer."
+      },
+      {
+        "h": "Optional all-day recording",
+        "ul": [
+          "Off by default. If you turn it on, your Apple Watch records audio and passes it to your iPhone.",
+          "Speech is turned into text on the iPhone with Apple's on-device recognition. If you set up your own computer for transcription, recordings are sent only to the address you enter — a computer on your home network or reached through your own private network (such as Tailscale). The developer never receives recordings or text.",
+          "If you turn on Record Places, MiYa notes where you were for each recording. Locations stay on your devices.",
+          "Recordings can pick up other people. Follow local laws and ask for consent when required."
+        ]
+      },
+      {
+        "h": "What we do not do",
+        "ul": [
+          "No accounts, sign-in or tracking.",
+          "No third-party analytics, advertising or crash-reporting SDKs.",
+          "No selling or sharing of data — there is no data to sell or share.",
+          "App Store privacy label: Data Not Collected."
+        ]
+      },
+      {
+        "h": "Deleting your data",
+        "p": "In MiYa, open About & Privacy and choose Delete Data on This Device to remove the report. Recordings can be deleted one by one in the recordings list. Deleting the app removes everything it stored. Turning off MiYa's access in the Health app stops any further reading."
+      },
+      {
+        "h": "Children",
+        "p": "MiYa is not directed at children and collects no data from anyone."
+      },
+      {
+        "h": "Changes and contact",
+        "p": "If this policy changes, the new version will be posted on this page with a new date. Questions: {email}"
+      }
+    ]
+  },
+  "support": {
+    "title": "MiYa Support",
+    "description": "Help with MiYa: syncing Health data, scores, languages, deleting data, and how to contact the developer.",
+    "intro": "Answers to common questions. If yours isn't here, email the developer — replies usually come within a few days.",
+    "faq": [
+      {
+        "q": "The report is empty.",
+        "a": "MiYa can only show what is in the Health app. Check Settings → Privacy & Security → Health → MiYa and allow the data types, then tap Sync Again. An Apple Watch gives the most data; iPhone-only step data also works."
+      },
+      {
+        "q": "Why don't my scores match another app?",
+        "a": "Recovery, Strain, Stress and Battery are calculated by MiYa against your own baseline, so they won't match other apps exactly. The trends should line up."
+      },
+      {
+        "q": "Some days have no recovery score.",
+        "a": "Recovery needs HRV and enough wear time. On days you wore the watch only briefly, resting heart rate isn't reliable and is left out."
+      },
+      {
+        "q": "How do I change the language?",
+        "a": "MiYa follows your iPhone's language. You can also pick a language in the report menu, or under Settings → MiYa → Language."
+      },
+      {
+        "q": "How do I delete everything?",
+        "a": "In MiYa, open About & Privacy and choose Delete Data on This Device. Recordings are deleted one by one in the recordings list. Deleting the app removes everything it stored."
+      },
+      {
+        "q": "Is MiYa a medical device?",
+        "a": "No. MiYa does not diagnose any condition. If you have chest pain, shortness of breath, dizziness or palpitations, seek medical care."
+      }
+    ],
+    "contact": "Email",
+    "contactNote": "Please don't send health data or screenshots containing personal information unless you're comfortable sharing them."
+  }
+}
