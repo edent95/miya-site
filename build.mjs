@@ -196,6 +196,9 @@ fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true
 fs.copyFileSync(path.join(ROOT, 'src', 'style.css'), path.join(OUT, 'style.css'));
 fs.copyFileSync(path.join(ROOT, 'src', 'site.js'), path.join(OUT, 'site.js'));
 write('CNAME', 'miya.eden-tan.com\n');
+// IndexNow:密钥文件放在站点根目录,证明这个站是我们的;推送脚本 scripts/indexnow.mjs 读同一个 indexnow-key.txt
+const INDEXNOW_KEY = fs.readFileSync(path.join(ROOT, 'indexnow-key.txt'), 'utf8').trim();
+write(`${INDEXNOW_KEY}.txt`, `${INDEXNOW_KEY}\n`);
 write('.nojekyll', '');
 write('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`);
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
