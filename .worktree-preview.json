@@ -1,0 +1,11 @@
+{
+  "_comment": "wt.mjs preview 读这份:先 node build.mjs 生成 dist/,再用 python 内置 http.server 起预览。联系邮箱用占位(真的只在 GitHub 仓库变量里)。",
+  "url": "http://127.0.0.1:{port}/",
+  "procs": [
+    {
+      "cwd": ".",
+      "env": { "MIYA_CONTACT_EMAIL": "preview@example.invalid" },
+      "argv": ["sh", "-c", "node build.mjs && exec python3 -m http.server {port} --bind 127.0.0.1 -d dist"]
+    }
+  ]
+}

@@ -21,7 +21,8 @@ a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outli
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; text-decoration: none; }
-.brand img { border-radius: 7px; }
+/* 页首小图标是装饰(旁边就是「MiYa」文字):用 CSS 背景而不是 <img alt="">,读屏器不念两遍,SEO 审计也不把它算成缺 alt */
+.brand-icon { width: 28px; height: 28px; flex: none; border-radius: 7px; background: url(/assets/favicon.png) center / cover no-repeat; }
 .pages { display: flex; gap: 14px; margin-left: auto; }
 .pages a { color: var(--ink-2); text-decoration: none; font-size: 15px; }
 .pages a[aria-current] { color: var(--ink); font-weight: 600; }
