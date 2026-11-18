@@ -18,6 +18,8 @@ const OUT = path.join(ROOT, 'dist');
 const SITE = 'https://miya.eden-tan.com';
 const APP_ID = '6813415265';
 const APP_STORE = `https://apps.apple.com/app/id${APP_ID}`;
+// App Store 上的正式名称(lookup?id= 查得到);站内品牌名仍是 MiYa
+const APP_STORE_NAME = 'MiYa Health Report';
 const CONTACT = process.env.MIYA_CONTACT_EMAIL || '';
 if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(CONTACT)) {
   console.error('✗ 需要环境变量 MIYA_CONTACT_EMAIL(支持页和隐私政策里的联系邮箱)');
@@ -60,7 +62,42 @@ const content = {};
 for (const L of LANGS) content[L.code] = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', 'content', `${L.code}.json`), 'utf8'));
 for (const L of LANGS) sameShape(content.en, content[L.code], L.code);
 
-function layout(L, page, { title, description, body, noindex = false }) {
+// 结构化数据:首页一份 WebSite + MobileApplication。只写真实信息 —— 免费(App Store 价格 0)、iPhone + Apple Watch、
+// 健康类;没有评分 / 评论就不写 aggregateRating(编造会被 Google 判为垃圾结构化数据)。
+// JSON 里的 < 转义成 \u003c,文案里出现 </script> 也不会提前结束标签。
+const jsonLd = (data) => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+function homeJsonLd(L) {
+  const H = content[L.code].home;
+  return jsonLd({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE}/#website`,
+        url: `${SITE}/`,
+        name: 'MiYa',
+        inLanguage: LANGS.map(o => o.hreflang),
+      },
+      {
+        '@type': 'MobileApplication',
+        '@id': `${SITE}/#app`,
+        name: 'MiYa',
+        alternateName: APP_STORE_NAME,
+        description: H.description,
+        url: `${SITE}/`,
+        image: `${SITE}/assets/icon.png`,
+        applicationCategory: 'HealthApplication',
+        operatingSystem: 'iOS 17.0 or later, watchOS',
+        installUrl: APP_STORE,
+        sameAs: [APP_STORE],
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', url: APP_STORE },
+        isPartOf: { '@id': `${SITE}/#website` },
+      },
+    ],
+  });
+}
+
+function layout(L, page, { title, description, body, noindex = false, head = '' }) {
   const c = content[L.code];
   const alternates = LANGS.map(o => `<link rel="alternate" hreflang="${o.hreflang}" href="${SITE}${url(o, page)}">`).join('\n  ')
     + `\n  <link rel="alternate" hreflang="x-default" href="${SITE}${url(LANGS[0], page)}">`;
@@ -83,11 +120,11 @@ function layout(L, page, { title, description, body, noindex = false }) {
   <link rel="icon" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/style.css">
-  <script src="/site.js" defer></script>
+  <script src="/site.js" defer></script>${head ? `\n  ${head}` : ''}
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="${url(L, PAGES[0])}"><img src="/assets/favicon.png" alt="" width="28" height="28">MiYa</a>
+    <a class="brand" href="${url(L, PAGES[0])}"><span class="brand-icon" aria-hidden="true"></span>MiYa</a>
     <nav class="pages">${nav}</nav>
     <details class="langs">
       <summary>${esc(L.name)}</summary>
@@ -111,7 +148,7 @@ function home(L, page) {
   const head = (k, h, lede) => `<header class="sec-head"><p class="kicker">${esc(k)}</p><h2>${esc(h)}</h2>${lede ? `<p class="lede">${esc(lede)}</p>` : ''}</header>`;
   const ledger = H.ledger.map((x) => `<li><b>${esc(x.n)}</b><span>${esc(x.t)}</span></li>`).join('');
   return layout(L, page, {
-    title: H.title, description: H.description,
+    title: H.title, description: H.description, head: homeJsonLd(L),
     body: `    <section class="hero">
       <img class="icon" src="/assets/icon.png" alt="MiYa" width="112" height="112">
       <h1>${txt(H.tagline)}</h1>
