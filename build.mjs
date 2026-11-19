@@ -110,6 +110,7 @@ function layout(L, page, { title, description, body, noindex = false, head = '' 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
+  <meta name="msvalidate.01" content="EFE62ECEA018947B29A9A559E0ED2C27">
   ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${SITE}${url(L, page)}">
   ${alternates}`}
   <meta property="og:title" content="${esc(title)}">
