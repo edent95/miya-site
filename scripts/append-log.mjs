@@ -35,6 +35,20 @@
  * 序号根本看不见,+1 必然撞号)。面板扫描器(`aggregator.ts`)会自动把这个目录并进项目条目。
  * 没有这个目录的仓库行为一点不变;要切过去:`node scripts/append-log.mjs --init-entries`。
  *
+ * ── learned:第 8 个字段,必填(2026-11-19 起) ────────────────────────────────────
+ * 这次学到了什么、该去哪,每条用方括号标去处;没有就写「无」,和 ripples 一样**不许留空**:
+ *
+ *   - **learned**:
+ *     - [skill:seo-combo] GSC 最近 2–3 天没定稿 → 按天比较截到最后定稿日
+ *     - [new-skill:gsc-daily] (完整流程)触发条件 + 三步以上固定做法 + 怎么验证
+ *     - [knowledge] 跨项目的环境事实 / 坑
+ *     - [rule] 以后所有 agent 都该照做的规矩
+ *     - [project] 已在这次改动里写进本仓库(AGENTS.md / docs),不再外发
+ *   - **learned**: 无
+ *
+ * PR 合并、worktree 被收掉之后,面板读这一栏分发进建议箱(技能踩坑 / 新技能草稿 / 知识 / 规则)。
+ * 追加时校验,不合格直接拒收;`--check` 只查 2026-11-19 起的条目(旧条目没有这一栏)。
+ *
  * 用法:
  *   node scripts/append-log.mjs < entry.md     # 正文从 stdin 读,首行是 `### 标题`
  *   node scripts/append-log.mjs --check        # 检查 id 重号 + 天标题是否递增 + logs/entries/ 里没有杂物
@@ -155,6 +169,49 @@ function strayEntryFiles(dir = ENTRIES, rel = '') {
   })
 }
 
+const LEARNED_SINCE = '2026-11-19'
+const LEARNED_TAG = /^\[(skill:[a-z0-9-]+|new-skill:[a-z0-9-]+|knowledge|rule|project)\][ \t]*(\S.*)$/
+
+/** 一条条目里的 learned:返回错误列表(空 = 合格) */
+function learnedErrors(entry) {
+  const lines = entry.split('\n')
+  const at = lines.findIndex((l) => /^-\s+\*\*learned\*\*\s*[::]/.test(l))
+  if (at < 0) return ['缺 `- **learned**:` 这一栏(这次学到了什么、该去哪;没有就写「无」)']
+  const inline = lines[at].replace(/^-\s+\*\*learned\*\*\s*[::]\s*/, '').trim()
+  const items = []
+  for (const l of lines.slice(at + 1)) {
+    if (/^\s+-\s+/.test(l)) items.push(l.replace(/^\s+-\s+/, '').trim())
+    else if (/^\s{2,}\S/.test(l) && items.length) items[items.length - 1] += ` ${l.trim()}`
+    else if (l.trim() === '' && !items.length) continue
+    else break
+  }
+  if (!items.length) {
+    if (/^无[。.]?$/.test(inline)) return []
+    if (!inline) return ['learned 是空的:没有就写「无」']
+    items.push(inline)
+  } else if (inline && !/^无[。.]?$/.test(inline)) items.unshift(inline)
+  return items.flatMap((it) => {
+    const m = LEARNED_TAG.exec(it)
+    if (!m) return [`learned 这一条没有合法的去处标签:「${it.slice(0, 40)}」—— 用 [skill:<技能id>] / [new-skill:<id>] / [knowledge] / [rule] / [project] 开头`]
+    return [...m[2]].length < 8 ? [`learned 这一条太短,写清现象和以后怎么做:「${it}」`] : []
+  })
+}
+
+/** 文本里按 `## 日期` 归属的每一条 `###` 条目 */
+function entriesOf(text) {
+  const out = []
+  let day = ''
+  let cur = null
+  for (const l of maskFences(text).split('\n')) {
+    const d = /^##[ \t]+(\d{4}-\d{2}-\d{2})/.exec(l)
+    if (d) { if (cur) out.push(cur); cur = null; day = d[1]; continue }
+    if (/^###\s/.test(l)) { if (cur) out.push(cur); cur = { day, title: l, body: [l] }; continue }
+    if (cur) cur.body.push(l)
+  }
+  if (cur) out.push(cur)
+  return out.map((e) => ({ ...e, body: e.body.join('\n') }))
+}
+
 function check() {
   const text = fs.readFileSync(LOG, 'utf8')
   const files = entryFiles()
@@ -194,6 +251,15 @@ function check() {
   const dupDay = [...new Set(days.filter((d, i) => days.indexOf(d) !== i))]
   if (dupDay.length) console.log(`  · 提示:${dupDay.join(', ')} 有重复的天标题,可以手工合并(不影响解析)`)
 
+  // learned:2026-11-19 起的条目必须有,且每条带去处标签
+  const sources = [{ name: path.basename(LOG), text }, ...files.map((f) => ({ name: path.relative(path.dirname(LOG), f), text: fs.readFileSync(f, 'utf8') }))]
+  const learnedBad = sources.flatMap(({ name, text: t }) => entriesOf(t).filter((e) => e.day >= LEARNED_SINCE)
+    .flatMap((e) => learnedErrors(e.body).map((msg) => `${name} ${e.title.slice(0, 50)}:${msg}`)))
+  if (learnedBad.length) {
+    console.error(`  ✗ learned 不合格(${learnedBad.length}):\n    ${learnedBad.slice(0, 10).join('\n    ')}`)
+    bad = true
+  } else console.log(`  ✓ ${LEARNED_SINCE} 起的条目都写了 learned`)
+
   if (bad) process.exit(1)
 }
 
@@ -217,6 +283,12 @@ if (process.argv.includes('--init-entries')) {
 const body = fs.readFileSync(0, 'utf8').trim()
 if (!body.startsWith('###')) {
   console.error('条目必须以 `### 标题` 开头(ID 由本脚本分配,不用自己写)')
+  process.exit(2)
+}
+
+const learnedProblems = learnedErrors(maskFences(body))
+if (learnedProblems.length) {
+  console.error(`条目没写进去 —— learned 不合格:\n  - ${learnedProblems.join('\n  - ')}\n\n格式:\n- **learned**:\n  - [skill:seo-combo] 现象 → 以后怎么做\n  - [knowledge] …\n或\n- **learned**: 无`)
   process.exit(2)
 }
 
